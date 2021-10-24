@@ -16,4 +16,13 @@ code {
     monospace;
 }
 
+.operator-btn{
+  @apply bg-[#f4f4f4] rounded-lg font-bold py-2 hover:bg-[#f0f0f0];
+}
+
+.operand-btn{
+  @apply rounded-lg py-3 hover:bg-[#f5f5f5];
+}
+
+
 
