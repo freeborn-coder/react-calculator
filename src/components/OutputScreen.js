@@ -7,9 +7,9 @@ function OutputScreen(props){
                     <input type='checkbox' /> Day mode
                 </label> */}
             </div>
-            <div className="">
-                <p className="text-lg text-right font-semibold">{props.input}</p>
-                <p className="text-4xl text-right font-bold">{props.output}</p>
+            <div className="w-full">
+                <p className="text-lg text-right font-semibold overflow-x-auto">{props.input}</p>
+                <p className="text-4xl text-right font-bold overflow-x-auto overflow-y-hidden w-full">{props.output}</p>
             </div>
         </div>
     );

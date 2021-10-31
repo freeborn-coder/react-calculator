@@ -94,17 +94,23 @@ export function Main(props){
                         href="https://www.behance.net/mohammadwajahat">Mohammad Wajahat</a></span> */
     
     return (
-        <div className='w-full h-[100vh] flex flex-col justify-center items-center bg-gray-500'>
-            <div className='w-[450px] bg-white rounded-xl h-[550px]'>
-                <div className="h-1/3">
-                    <OutputScreen input={input} output={output} />
+        <div className='w-full h-[115vh] md:h-[100vh] flex justify-center items-center bg-gray-500'>
+            <div className="">
+                <div 
+                    className='w-[90vw] h-[90vh] sm:w-[80vw] md:w-[25vw] mt-4 
+                    bg-white rounded-xl sm:h-[550px] flex flex-col justify-end'
+                >
+                    <div className="h-[30%]">
+                        <OutputScreen input={input} output={output} />
+                    </div>
+                    <div className="h-[70%]"> 
+                        <ButtonsContainer actions={actions} />
+                    </div>
                 </div>
-                <div className="h-2/3"> 
-                    <ButtonsContainer actions={actions} />
+                <div className="text-center text-xs h-[10vh] mt-14 sm:mt-8">
+                    <p className='text-gray-400 font-semibold mt-4 sm:mt-0'>REACT CALCULATOR by&nbsp; <a target="_blank" rel="noreferrer" className='text-gray-300' href="https://freeborniwarri.netlify.app">Freeborn Iwarri</a></p>
+                    <p className="my-3 text-sm font-semibold text-gray-400">Designed by <a className="" href="https://www.behance.net/mohammadwajahat">Mohammad Wajahat</a></p>
                 </div>
-            </div>
-            <div className="text-center text-xs mt-10 translate-y-10">
-                <span className='text-gray-400'>REACT CALCULATOR by&nbsp; <a target="_blank" rel="noreferrer" className='text-gray-300' href="https://freeborniwarri.netlify.app">Freeborn Iwarri</a></span>
             </div>
         </div>
     );
