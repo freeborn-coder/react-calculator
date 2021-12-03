@@ -46,27 +46,16 @@ export function Main(){
             if(isNaN(lastInput) && isNaN(val) && ! ["-","+"].includes(val)) return;
             
             if(isNaN(val) || isNaN(lastInput)){
+                
                 if(val === "="){
-                    
                     // compute answer
                     let stmt = prev.split(" ");
                     stmt = stmt.filter(elem => elem.trim().length > 0);
-                    stmt = stmt.map(elem => isNaN(elem) ? elem : Number(elem));
                     
-                    // console.log(stmt.join(" "));
-
-                    let [num1,operator,num2] = stmt;
-
-                    switch(operator){
-                        case "+": res = num1 + num2; break;
-                        case "x": res = num1 * num2; break;
-                        case "-": res = num1 - num2; break;
-                        case "/": res = num1 / num2; break;
-                        case "^": res = num1 ** num2; break;
-                        case "%": res = num1 % num2; break;
-                        default:
-                    }
-                    
+                    res = stmt.reduce((prev,curr,index) => {
+                        if(index === stmt.length - 1) return prev;
+                        return isNaN(curr) ? compute(prev,stmt[index+1],curr) : prev;
+                    });
                 }
                 newInput = prev + "  " + val;
             }else{
@@ -90,6 +79,19 @@ export function Main(){
         }
     }
 
+    const compute = (num1, num2, operator) => {
+        let res;
+        switch(operator){
+            case "+": res = Number(num1) + Number(num2); break;
+            case "x": res = num1 * num2; break;
+            case "-": res = num1 - num2; break;
+            case "/": res = num1 / num2; break;
+            case "^": res = num1 ** num2; break;
+            case "%": res = num1 % num2; break;
+            default:
+        }   
+        return res;
+    }
 
     // const handleKeyPress = (e) => {
     //     if(e.key.toString().toLowerCase() === "backspace") actions.backSpace();
